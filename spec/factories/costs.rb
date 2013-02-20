@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :cost do
-    name "MyString"
-    description "MyText"
-    value "9.99"
-    frequency 1
+    name { Faker::Lorem.words(1).to_s }
+    description { Faker::Lorem.words(20).to_s }
+    value { rand() * 1000 }
+    frequency { 1 + (rand() * 3).to_i }
     user_id 1
   end
 end
