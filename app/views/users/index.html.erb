@@ -1,0 +1,26 @@
+<h1>
+	Users
+	<%= link_to 'New', new_user_path, :class => "btn" %>
+</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Currency</th>
+    <th>Salary</th>
+    <th>Tax</th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.name, edit_user_path(user) %></td>
+    <td><%= user.email %></td>
+    <td><%= user.currency %></td>
+    <td><%= user.salary %></td>
+    <td><%= user.tax %></td>
+		<td><%= link_to 'Destroy', user, :class => "btn btn-danger", confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
