@@ -7,11 +7,15 @@ gem 'rb-fsevent'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
+end
+
+group :test do
+  gem 'factory_girl_rails'
   gem 'guard-rails'
   gem 'guard-rspec'  
   gem 'guard-livereload'
-  gem 'capybara'
-  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :assets do
