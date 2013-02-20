@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
-gem 'sqlite3'
-
 gem 'rb-fsevent'
 
 group :development, :test do
+gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara'
 end
