@@ -19,11 +19,11 @@
   <tr>
     <td><%= link_to cost.name, edit_cost_path(cost) %></td>
     <td><%= cost.description %></td>
-    <td><%= cost.value %></td>
-    <td><%= cost.frequency %></td>
-    <td><%= cost.monthly %></td>
-    <td><%= cost.yearly %></td>
-    <td><%= cost.quarterly %></td>
+		<td><%= cost.value.to_i %> <%= current_user.currency %></td>
+    <td><%= cost.frequency %> <%= current_user.currency %></td>
+    <td><%= cost.monthly %> <%= current_user.currency %></td>
+    <td><%= cost.yearly %> <%= current_user.currency %></td>
+    <td><%= cost.quarterly %> <%= current_user.currency %></td>
 		<td><%= link_to 'Destroy', cost, :class => "btn btn-danger", confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
@@ -33,9 +33,9 @@
 		<td></td>
 		<td></td>
 		<td></td>
-		<td><b><%= @costs.sum{ |c| c.monthly } %></b></td>
-		<td><b><%= @costs.sum{ |c| c.yearly } %></b></td>
-		<td><b><%= @costs.sum{ |c| c.quarterly } %></b></td>
+		<td><b><%= @costs.sum{ |c| c.monthly } %> <%= current_user.currency %></b></td>
+		<td><b><%= @costs.sum{ |c| c.yearly } %> <%= current_user.currency %></b></td>
+		<td><b><%= @costs.sum{ |c| c.quarterly } %> <%= current_user.currency %></b></td>
 		<td></td>
 	</tr>
 </table>

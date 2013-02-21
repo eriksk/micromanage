@@ -2,12 +2,6 @@ require 'spec_helper'
 
 describe CostsController do
 
-	# auth
-	include AuthHelper
-	before(:each) do
-		http_login
-	end
-
 	describe "POST /costs" do
 		it "should connect the logged in user to the cost"
 		

@@ -5,7 +5,7 @@ class CostsController < ApplicationController
   # GET /costs
   # GET /costs.json
   def index
-    @costs = Cost.all
+    @costs = current_user.costs
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,10 +44,11 @@ class CostsController < ApplicationController
   # POST /costs.json
   def create
     @cost = Cost.new(params[:cost])
+		@cost.user = current_user
 
     respond_to do |format|
       if @cost.save
-        format.html { redirect_to @cost, notice: 'Cost was successfully created.' }
+        format.html { redirect_to :action => :index, notice: 'Cost was successfully created.' }
         format.json { render json: @cost, status: :created, location: @cost }
       else
         format.html { render action: "new" }
@@ -63,7 +64,7 @@ class CostsController < ApplicationController
 
     respond_to do |format|
       if @cost.update_attributes(params[:cost])
-        format.html { redirect_to @cost, notice: 'Cost was successfully updated.' }
+        format.html { redirect_to :action => :index, notice: 'Cost was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
