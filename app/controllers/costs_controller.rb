@@ -1,4 +1,7 @@
 class CostsController < ApplicationController
+
+	before_filter :logged_in?
+
   # GET /costs
   # GET /costs.json
   def index

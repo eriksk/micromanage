@@ -1,9 +1,19 @@
 <div class="row">
 	<div class="span12">
 		<h1>
-			Micromanage
+			<%= link_to "Micromanage", "/" %>
 			<small>Manage your personal economy</small>
+		<div class="pull-right">
+			<small>
+			<% if current_user %>
+				<%= current_user.email %> |
+				<%= link_to "Log out",  "/authentication/logout", :method => :post %>
+			<% else %>
+				<%= link_to "Log in", "/" %>
+			<% end %>
+		</small>
+		</div>
 		</h1>
-		<hr />
 	</div>
 </div>
+<hr />

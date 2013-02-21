@@ -11,6 +11,10 @@
 	<div class="container">
 		<%= render :partial => "/layouts/header" %>
 	</div>
+	
+	<div class="container">
+		<%= render :partial => "/layouts/notices", :locals => { flash: flash } %>
+	</div>
 
 	<div class="container">
 		<%= yield %>
