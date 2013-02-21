@@ -9,7 +9,15 @@
 <body>
 
 	<div class="container">
+		<%= render :partial => "/layouts/header" %>
+	</div>
+
+	<div class="container">
 		<%= yield %>
+	</div>
+
+	<div class="container">
+		<%= render :partial => "/layouts/footer" %>
 	</div>
 
 </body>
