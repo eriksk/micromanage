@@ -1,7 +1,8 @@
 Micromanage::Application.routes.draw do
-  resources :users
+  get "home/index"
 
+  resources :users
   resources :costs
 
-	root :to => "costs#index"
+	root :to => "home#index"
 end

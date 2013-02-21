@@ -21,6 +21,11 @@ describe CostsController do
 				post :create, cost: FactoryGirl.attributes_for(:cost)
 				response.should redirect_to Cost.last
 			end
+			it "attaches the current user to the cost" do
+				pending "do user login first"
+				post :create, cost: FactoryGirl.attributes_for(:cost, :user_id => current_user.id)
+				Cost.last.user.should eq currrent_user
+			end
 		end
 	end
 end
