@@ -26,5 +26,11 @@ describe User do
 	it "is invalid without a currency" do
 		FactoryGirl.build(:user, :currency => nil).should_not be_valid
 	end
+
+	describe "relations" do
+		it "has many costs" do
+			FactoryGirl.create(:user).should respond_to :costs
+		end
+	end
 	
 end

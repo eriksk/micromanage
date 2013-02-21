@@ -39,4 +39,13 @@ describe Cost do
 			.quarterly.should == 200
 		end
 	end
+
+	describe "relations" do
+		it "belongs to a user" do
+			FactoryGirl.create(:cost).should respond_to :user
+		end	
+		it "is invalid without a user" do
+			FactoryGirl.build(:cost, :user_id => nil).should_not be_valid
+		end
+	end
 end

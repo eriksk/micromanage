@@ -1,9 +1,11 @@
 class Cost < ActiveRecord::Base
-  attr_accessible :description, :frequency, :name, :user_id, :value
+  attr_accessible :description, :frequency, :name, :value, :user_id
 
-	validates :name, :frequency, :value, :presence => true
+	validates :name, :frequency, :value, :user_id, :presence => true
 	validate :value_cannot_be_zero
 	validate :frequency_cannot_be_zero
+
+	belongs_to :user
 
 	def monthly
 		(value / frequency).to_i
