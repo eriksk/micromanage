@@ -39,3 +39,6 @@
 		<td></td>
 	</tr>
 </table>
+<div>
+	<p>Left on salary: <b><%= current_user.salary - @costs.sum{ |c| c.monthly } %></b> <%= current_user.currency %></p>
+</div>
